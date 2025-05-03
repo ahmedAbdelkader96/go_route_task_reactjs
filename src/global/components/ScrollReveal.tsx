@@ -1,15 +1,11 @@
 import React, { useEffect, useRef, useState, ReactNode } from "react";
-import styles from "../styles/Animations.module.css"; 
+import styles from "../styles/Animations.module.css";
 
 interface ScrollRevealProps {
   children: ReactNode;
 }
 
-const ScrollRevealBottom: React.FC<ScrollRevealProps> = ({
-  children,
-  // animationClass,
-  // delay = 150,
-}) => {
+const ScrollRevealBottom: React.FC<ScrollRevealProps> = ({ children }) => {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
