@@ -14,7 +14,7 @@ const ProductsPage: React.FC = () => {
   useEffect(() => {
     const handler = setTimeout(() => {
       setDebouncedQuery(searchQuery);
-    }, 1000);
+    }, 800);
 
     return () => {
       clearTimeout(handler);
