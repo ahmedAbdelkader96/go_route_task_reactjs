@@ -9,7 +9,16 @@ export default class ProductModel {
   date: Date;
   image: string;
 
-  constructor({ id, title, description, price, category, createdAt, updatedAt,image }: {
+  constructor({
+    id,
+    title,
+    description,
+    price,
+    category,
+    createdAt,
+    updatedAt,
+    image,
+  }: {
     id: string;
     title: string;
     description: string;

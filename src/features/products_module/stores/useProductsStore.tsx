@@ -6,8 +6,8 @@ interface ProductsStore {
   products: ProductModel[];
   loading: boolean;
   error: string | null;
-  page: number; // Properly type page
-  limit: number; // Properly type limit
+  page: number;
+  limit: number;
   setLoading: (loading: boolean) => void;
   setProducts: (products: ProductModel[]) => void;
   fetchProducts: (query: string) => Promise<void>;
@@ -21,16 +21,15 @@ export const useProductsStore = create<ProductsStore>((set) => {
   return {
     products: [],
     loading: false,
-    error: null, // Initialize error state
-    page: 1, // Initialize page state
-    limit: 10, // Initialize limit state
-  
+    error: null,
+    page: 1,
+    limit: 10,
     setLoading: (loading: boolean) => set({ loading }),
     setProducts: (products: ProductModel[]) => set({ products }),
-    setError: (error: string | null) => set({ error }), // Set error state
+    setError: (error: string | null) => set({ error }),
     setPage: (page: number) => set({ page }),
     fetchProducts: async (query: string) => {
-      const { page, limit } = useProductsStore.getState(); // Access page and limit from the store
+      const { page, limit } = useProductsStore.getState();
       await productsController.fetchProducts(query);
     },
   };

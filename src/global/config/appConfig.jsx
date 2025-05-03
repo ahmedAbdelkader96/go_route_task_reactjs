@@ -1,1 +1,0 @@
-//  App-wide configuration (e.g., environment variables)

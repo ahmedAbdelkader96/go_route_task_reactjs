@@ -1,0 +1,137 @@
+@import "../../../global/styles/animations.module.css";
+
+.header_and_search_bar {
+  z-index: 1;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  background-color: white;
+  flex-direction: column;
+  padding-top: 2rem;
+  padding-inline: 2rem;
+}
+
+.header_container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+}
+
+.header_container h1 {
+  font-size: 1.5rem;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+  animation: fadeInFromLeft 1s ease;
+}
+
+.header_sub_container {
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 0rem;
+}
+
+.header_sub_container h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: black;
+  margin: 0;
+  padding: 0;
+  animation: fadeInFromLeft 1s ease;
+}
+
+.header_sub_container button {
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  width: 7rem;
+  height: 2.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  border: 1px solid black;
+  animation: fadeInFromRight 1s ease;
+}
+
+.header_sub_container button:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}
+
+.search_bar {
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding-top: 1.5rem;
+  animation: fadeInFromBottom 1s ease;
+}
+
+.input_wrapper {
+  height: 3rem;
+  display: flex;
+  position: relative;
+  flex-grow: 1;
+}
+
+.search_icon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: #888;
+  font-size: 1rem;
+}
+
+.search_input {
+  width: 100%;
+  padding: 0.5rem 0.5rem 0.5rem 2.5rem; /* Add padding to leave space for the icon */
+  border: 1px solid #ccc;
+  border-radius: 8px; /* Add border radius */
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.search_input:focus {
+  border-color: #007bff; /* Change border color on focus */
+}
+
+.search_button {
+  width: 50px;
+  height: 50px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px; /* Add border radius */
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.filters_container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+.filter_dropdown {
+  width: 12rem;
+
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px; /* Add border radius */
+  font-size: 1rem;
+}

@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import AuthController  from "../controllers/AuthController.tsx";
+import AuthController from "../controllers/AuthController.tsx";
 import UserModel from "../models/UserModel.tsx";
 
 interface AuthStore {
@@ -9,7 +9,7 @@ interface AuthStore {
   loading: boolean;
   error: string | null;
   signin: (email: string, password: string) => Promise<boolean>;
-  signup: (userData: object) => Promise<boolean>; // Return boolean
+  signup: (userData: object) => Promise<boolean>;
   logout: () => Promise<boolean>;
   setLoading: (loading: boolean) => void;
   setUser: (user: UserModel | null) => void;
@@ -17,7 +17,6 @@ interface AuthStore {
   setRefreshToken: (refreshToken: string | null) => void;
   setError: (error: string | null) => void;
 }
- 
 
 export const useAuthStore = create<AuthStore>((set) => {
   const authController = new AuthController();
@@ -33,9 +32,10 @@ export const useAuthStore = create<AuthStore>((set) => {
     setAccessToken: (accessToken: string | null) => set({ accessToken }),
     setRefreshToken: (refreshToken: string | null) => set({ refreshToken }),
     setError: (error: string | null) => set({ error }),
-    signin: (email: string, password: string) => authController.signin(email, password),
+    signin: (email: string, password: string) =>
+      authController.signin(email, password),
     signup: async (userData: object) => {
-      return await authController.signup(userData); // Return boolean from controller
+      return await authController.signup(userData);
     },
     logout: () => authController.logout(),
   };

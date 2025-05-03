@@ -1,0 +1,15 @@
+.loading_message_container {
+  height: 100vh;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error_message_container {
+  height: 100vh;
+  color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

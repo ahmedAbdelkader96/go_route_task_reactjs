@@ -3,7 +3,13 @@ import { useEffect } from "react";
 import styles from "../styles/PaginationComponent.module.css";
 import useProductsStore from "../stores/useProductsStore";
 
-export default function PaginationComponent({ searchQuery }) {
+interface PaginationComponentProps {
+  searchQuery: string;
+}
+
+const PaginationComponent: React.FC<PaginationComponentProps> = ({
+  searchQuery,
+}) => {
   const { page, setPage, fetchProducts } = useProductsStore();
 
   const handleNextPage = () => {
@@ -31,4 +37,6 @@ export default function PaginationComponent({ searchQuery }) {
       <button onClick={handleNextPage}>Next</button>
     </div>
   );
-}
+};
+
+export default PaginationComponent;

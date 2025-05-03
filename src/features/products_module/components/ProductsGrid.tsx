@@ -4,7 +4,7 @@ import ProductsGridItem from "../components/ProductsGridItem";
 import ProductModel from "../models/ProductModel";
 
 interface ProductsGridProps {
-  products: ProductModel[]; // Explicitly type the products prop
+  products: ProductModel[];
 }
 const ProductsGrid: React.FC<ProductsGridProps> = ({ products }) => {
   return (

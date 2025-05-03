@@ -1,0 +1,42 @@
+.animated_component {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.5s ease, transform 1s ease;
+}
+
+.fadeInFromBottom {
+  opacity: 1;
+  transform: translateY(0);
+}
+@keyframes fadeInFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

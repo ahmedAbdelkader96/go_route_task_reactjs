@@ -1,5 +1,5 @@
-import { securedApiClient } from "../../../global/services/apiClient.jsx";
-import ProductModel from "../models/ProductModel.tsx";
+import { securedApiClient } from "../../../global/services/apiClient";
+import ProductModel from "../models/ProductModel";
 
 class ProductsRepo {
   async fetchProducts(
@@ -14,11 +14,7 @@ class ProductsRepo {
         limit,
       },
     });
-    console.log("Response status:", response.status);
     const products = response.data;
-    console.log("Products fetched:", products.length);
-
-    // Decode JSON data into a list of BlogModel instances
     return products.map((product: ProductModel) =>
       ProductModel.fromJSON(product)
     );

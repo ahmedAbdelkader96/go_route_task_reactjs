@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import useProductsStore from "../stores/useProductsStore";
-import SearchBar from "./SearchBar";
 import ProductsGrid from "./ProductsGrid";
-import Header from "./Header";
 import PaginationComponent from "./PaginationComponent";
+import HeaderAndSearchBar from "./HeaderAndSearchBar";
+import styles from "../styles/Messages.module.css";
 
-export default function ProductsPage() {
+const ProductsPage: React.FC = () => {
   const { products, loading, error, fetchProducts, page, setPage } =
     useProductsStore();
   const [searchQuery, setSearchQuery] = useState<string>("");
@@ -14,7 +14,7 @@ export default function ProductsPage() {
   useEffect(() => {
     const handler = setTimeout(() => {
       setDebouncedQuery(searchQuery);
-    }, 800);
+    }, 1000);
 
     return () => {
       clearTimeout(handler);
@@ -27,21 +27,24 @@ export default function ProductsPage() {
   }, [debouncedQuery]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className={styles.loading_message_container}>Loading...</div>;
   }
 
   if (error) {
-    return <div style={{ color: "red" }}>{error}</div>;
+    return <div className={styles.error_message_container}>{error}</div>;
   }
 
   return (
     <div>
-      <Header />
-
-      <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+      <HeaderAndSearchBar
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+      />
 
       <ProductsGrid products={products} />
       <PaginationComponent searchQuery={searchQuery} />
     </div>
   );
-}
+};
+
+export default ProductsPage;

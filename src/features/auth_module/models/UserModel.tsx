@@ -3,7 +3,6 @@ export default class UserModel {
   name: string;
   jobTitle: string;
   email: string;
-  password?: string; // Optional password field
   createdAt?: Date;
 
   constructor({
@@ -11,21 +10,18 @@ export default class UserModel {
     name,
     jobTitle,
     email,
-    password,
     createdAt,
   }: {
     id?: string;
     name: string;
     jobTitle: string;
     email: string;
-    password?: string; // Optional parameter
     createdAt?: Date;
   }) {
     this.id = id;
     this.name = name;
     this.jobTitle = jobTitle;
     this.email = email;
-    this.password = password; // Set password if provided
     this.createdAt = createdAt;
   }
 
@@ -34,7 +30,6 @@ export default class UserModel {
       name: this.name,
       jobTitle: this.jobTitle,
       email: this.email,
-      password: this.password ? this.password : undefined,
     };
   }
 

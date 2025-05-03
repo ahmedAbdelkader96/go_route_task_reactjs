@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ProductsPage from "./features/products_module/components/ProductsPage.tsx";
 import { ToastContainer } from "react-toastify";
 import AuthPage from "./features/auth_module/components/AuthPage.tsx";
-import PrivateRoute from "./global/routes/privateRoute.tsx";
+import PrivateRoute from "./global/components/PrivateRoute.tsx";
 
 const App: React.FC = () => {
   return (

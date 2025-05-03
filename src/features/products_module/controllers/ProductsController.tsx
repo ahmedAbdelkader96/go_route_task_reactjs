@@ -1,5 +1,5 @@
 import ProductsRepo from "../repo/ProductsRepo";
-import { useProductsStore } from "../stores/useProductsStore"; 
+import { useProductsStore } from "../stores/useProductsStore";
 
 class ProductsController {
   private productsRepo: ProductsRepo;
@@ -10,17 +10,22 @@ class ProductsController {
   }
 
   async fetchProducts(query = ""): Promise<void> {
-    const { page, limit ,setLoading, setProducts, setError } = useProductsStore.getState(); // Access Zustand store methods
+    const { page, limit, setLoading, setProducts, setError } =
+      useProductsStore.getState();
     setLoading(true);
     try {
-      const products = await this.productsRepo.fetchProducts(query,page,limit); // Fetch products using the repository
+      const products = await this.productsRepo.fetchProducts(
+        query,
+        page,
+        limit
+      );
       setProducts(products);
-    }catch (error: any) {
+    } catch (error: any) {
       if (error.response?.status === 401) {
         return;
       }
       console.error("Unexpected error fetching products in Controller:", error);
-      setError("Failed to fetch products. Please try again later."); // Set a user-friendly error message
+      setError("Failed to fetch products. Please try again later.");
     } finally {
       setLoading(false);
     }

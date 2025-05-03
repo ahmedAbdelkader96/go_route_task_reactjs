@@ -1,7 +1,8 @@
 import React from "react";
-import { AnimatedComponentFromBottom } from "../../../global/hooks/AnimatedComponent";
+import ScrollRevealBottom from "../../../global/components/ScrollReveal";
 import styles from "../styles/ProductsGrid.module.css";
 import ProductModel from "../models/ProductModel";
+import animationStyles from "../../../global/styles/animations.module.css";
 
 interface ProductsGridItemProps {
   product: ProductModel; // Explicitly type the product prop
@@ -9,11 +10,10 @@ interface ProductsGridItemProps {
 
 const ProductsGridItem: React.FC<ProductsGridItemProps> = ({ product }) => {
   return (
-    <AnimatedComponentFromBottom>
+    <ScrollRevealBottom >
       <div key={product.id} className={styles.products_grid_item}>
-
         <div className={styles.products_grid_item_image_container}>
-        <img src={product.image} alt={product.title} />
+          <img src={product.image} alt={product.title} />
         </div>
 
         <div className={styles.products_grid_item_texts}>
@@ -23,7 +23,7 @@ const ProductsGridItem: React.FC<ProductsGridItemProps> = ({ product }) => {
           <h3>{product.price} $</h3>
         </div>
       </div>
-    </AnimatedComponentFromBottom>
+    </ScrollRevealBottom>
   );
 };
 

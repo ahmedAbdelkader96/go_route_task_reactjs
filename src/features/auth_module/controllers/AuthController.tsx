@@ -31,28 +31,28 @@ class AuthController {
   }
 
   async signup(userData: object): Promise<boolean> {
-    const authStore = useAuthStore.getState(); // Access Zustand store methods
+    const authStore = useAuthStore.getState(); 
     authStore.setLoading(true);
     try {
-      const { user, accessToken, refreshToken } = await this.authRepo.signup(userData); // Call the repository
+      const { user, accessToken, refreshToken } = await this.authRepo.signup(userData); 
       authStore.setUser(user);
       authStore.setAccessToken(accessToken);
       authStore.setRefreshToken(refreshToken);
-      return true; // Return the object
+      return true; 
     } catch (error: any) {
       console.error("Failed to signup:", error);
       authStore.setError(error.message || "An unknown error occurred during signup");
-      throw error; // Re-throw the error for the caller to handle
+      throw error; 
     } finally {
       authStore.setLoading(false);
     }
   }
 
   async logout(): Promise<boolean> {
-    const authStore = useAuthStore.getState(); // Access Zustand store methods
+    const authStore = useAuthStore.getState(); 
     authStore.setLoading(true);
     try {
-      const success = await this.authRepo.logout(); // Call the repository
+      const success = await this.authRepo.logout();
       if (success) {
         authStore.setUser(null);
         authStore.setAccessToken(null);
