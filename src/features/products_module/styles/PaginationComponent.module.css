@@ -1,0 +1,12 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+button.disabledButton {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
